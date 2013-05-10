@@ -1,0 +1,21 @@
+<?php
+
+/**
+ *@file
+ *This module connects to the uPay Gateway and stores information about the donators in the database.
+ */
+ 
+/**
+ *Implementation of hook_menu().
+ */
+ 
+function petit_donations_menu() {
+  $items = array();
+  
+  $items['donate'] = array(
+    'title' => 'Petit Institute Donations',
+    'page callback' => 'drupal_get_form',
+    
+  );
+
+}

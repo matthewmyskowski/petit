@@ -1,0 +1,3 @@
+name = Petit Donations
+description = A form for connecting with the uPay Gateway and storing donator information in the database.
+core = 7.x
