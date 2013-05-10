@@ -1,0 +1,39 @@
+Notes from the Git Real course at gitreal.codeschool.com
+
+A distributed source control repository or Distributed Version Control System (DVCS).
+
+
+
+
+git help - gives lists of commands
+git help command - info of specific command
+
+"Setting up Git"
+git config --global user.name "Matthew Myskowski"
+git config --global user.email matt@ibb.gatech.edu
+
+git config --global color.ui true <this is not necessary>
+
+"Starting a repo"
+mkdir project
+cd project
+git init
+
+git status "what has changed"
+
+"add to staging area"
+git add README.txt LISCENSE.txt     "for one or more files"
+git add --all     "for all new or modified files"
+git add *.txt     adds all txt files
+git add docs/     adds all files in a directory
+git add "*.txt"     adds all txt file in whole project
+
+"commit changes"
+git commit -m "Create a readme. Keep messages descriptive and in the present tense"
+
+"timeline histor"
+git log
+
+git status
+
+
