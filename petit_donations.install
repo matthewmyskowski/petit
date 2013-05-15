@@ -1,4 +1,6 @@
-mplements hook_schema()
+<?php
+/**
+ * Implements hook_schema()
  */
 function petit_donations_schema() {
   $schema['petit_upay_trans'] = array(
@@ -6,40 +8,40 @@ function petit_donations_schema() {
     'description' => t('Stores a transaction that will be sent to uPay'),
     'fields' => array(
       'tid' => array(
-          'description' => 'The primary identifier for a transaction.',
-          'type' => 'serial',
-          'unsigned' => TRUE,
-          'not null' => TRUE,
-        ),
-      'First Name' => array(
+        'description' => 'The primary identifier for a transaction.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'first_name' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
         'default' => NULL,
         'description' => t('First Name of the person submitting the transaction'),
-      );
-      'Last Name' => array(
+      ),
+      'last_name' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
         'default' => NULL,
         'description' => t('Last Name of the person submitting the transaction'),
-      );
-      'Email' => array(
+      ),
+      'email' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
         'default' => NULL,
         'description' => t('Email address'),
-      );
-      'Amount' => array(
+      ),
+      'amount' => array(
         'type' => 'numeric',
         'unsigned' => TRUE,
         'precision' => 8,
         'scale' => 2,
         'not null' => TRUE,
         'description' => t('Amount in dollars of the transaction'),
-      );
+      ),
     ),
     'primary key' => array('tid'),
   );

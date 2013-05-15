@@ -15,7 +15,52 @@ function petit_donations_menu() {
   $items['donate'] = array(
     'title' => 'Petit Institute Donations',
     'page callback' => 'drupal_get_form',
-    
+    'page arguments' => array('petit_donations_form1'),
+    'type' => MENU_NORMAL_ITEM,
   );
+}
 
+/**
+ * Define the form that collects transaction information.
+ */
+function petit_donations_form(){
+  $form['first_name'] = array(
+    '#title' => t('First Name'),
+    '#type' => 'textfield',
+    '#description' => t('Please enter your first name.'),
+  );
+   $form['last_name'] = array(
+    '#title' => t('Last Name'),
+    '#type' => 'textfield',
+    '#description' => t('Please enter your last name.'),
+  );
+  $form['email'] = array(
+    '#title' => t('Email address'),
+    '#type' => 'textfield',
+    '#description' => t('Please enter your email address.'),
+  );
+  $form['tid'] = array(
+    '#type' => 'value',
+    '#value' => '007',
+  );
+  $form['#submit'][] = 'pd_create_node_submit_function';
+  $form['#submit'][] = 'pd_post_upay_submit_function';
+  return $form;
+}
+
+function pd_create_node_submit_function($form,&$form_state){
+  // first name  = $form_state['first_name'];
+  // last name   = $form_state['last_name'];
+  // email address = $form_state['email'];
+
+  $record = new stdClass();
+  $record->first_name = $form_state['first_name'];
+  $record->last_name = $form_state['last_name'];
+  $record->email = $form_state['email'];
+
+  $table = 'petit_donations'  
+
+  drupal_write_record($table, $record);
+
+  $form_state['tid'] = $record->tid;
 }
