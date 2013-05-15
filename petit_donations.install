@@ -1,0 +1,46 @@
+mplements hook_schema()
+ */
+function petit_donations_schema() {
+  $schema['petit_upay_trans'] = array(
+    // Table description
+    'description' => t('Stores a transaction that will be sent to uPay'),
+    'fields' => array(
+      'tid' => array(
+          'description' => 'The primary identifier for a transaction.',
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+      'First Name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => NULL,
+        'description' => t('First Name of the person submitting the transaction'),
+      );
+      'Last Name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => NULL,
+        'description' => t('Last Name of the person submitting the transaction'),
+      );
+      'Email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => NULL,
+        'description' => t('Email address'),
+      );
+      'Amount' => array(
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 8,
+        'scale' => 2,
+        'not null' => TRUE,
+        'description' => t('Amount in dollars of the transaction'),
+      );
+    ),
+    'primary key' => array('tid'),
+  );
+}
