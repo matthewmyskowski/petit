@@ -2,8 +2,8 @@
 /**
  * Implements hook_schema()
  */
-function petit_donations_schema() {
-  $schema['petit_upay_trans'] = array(
+function rmw_donations_schema() {
+  $schema['rmw_upay_trans'] = array(
     // Table description
     'description' => t('Stores a transaction that will be sent to uPay'),
     'fields' => array(
